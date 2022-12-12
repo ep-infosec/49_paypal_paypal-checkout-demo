@@ -1,0 +1,71 @@
+{
+  "name": "paypal-checkout-demo",
+  "version": "2.0.14",
+  "description": "Demo application for paypal checkout",
+  "main": "src/app/server/index.js",
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "build": "webpack --display-error-details --config webpack.conf.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier . --write",
+    "start": "node src/app/server",
+    "start:dev": "webpack-dev-server --config webpack.conf.js",
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paypal/paypal-checkout-demo.git"
+  },
+  "keywords": [
+    "paypal",
+    "checkout",
+    "demo"
+  ],
+  "author": "Andrew Throener",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/paypal/paypal-checkout-demo/issues"
+  },
+  "homepage": "https://github.com/paypal/paypal-checkout-demo#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "belter": "^1.0.92",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
+    "react": "^16",
+    "react-dom": "^16",
+    "react-router": "^5.0.0",
+    "react-router-dom": "^5.2.0",
+    "request": "^2.81.0",
+    "zalgo-promise": "^1.0.38"
+  },
+  "lint-staged": {
+    "@(src)/**/*.js": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test"
+    }
+  }
+}
